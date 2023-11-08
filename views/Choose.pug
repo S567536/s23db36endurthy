@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  h1= title
+  - let image_names = ["iphone.jpg","oneplus.jpg","pixel.jpg","samsung.jpg","virtue.jpg"]
+   -for(let i=0; i<3; i++){
+    -let random= Math.floor(Math.random()*5)
+     img(src=`/images/${image_names[random]}` alt=`Image Name Phone${random}` height="300px" width="300px")
+    -}
+
+    

@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  h1= title 
+  -var result = [{Phone_Name: "OnePlus", Phone_price: 200000, Phone_Storage: 256},{Phone_Name: "Iphone 7", Phone_price: 400000, Phone_Storage: 512},{Phone_Name: "Samsung", Phone_price: 1000000, Phone_Storage: 1024}];
+    .container-fluid
+        .row
+            each item,index in result
+                .col-sm-2(onclick=`buy(${index})`)
+                    p Phone_Name: #{item.Phone_Name}
+                    p Phone_price: #{item.Phone_price}
+                    p Phone_Storage:#{item.Phone_Storage}
+                
+    script. 
+        function buy(index){
+            alert(`you purchase item: ${index+1}`)
+        }
