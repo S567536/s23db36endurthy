@@ -24,7 +24,7 @@ var usersRouter = require('./routes/users');
 var phoneRouter = require('./routes/phone');
 var boardRouter = require('./routes/board');
 var ChooseRouter = require('./routes/Choose');
-var phone= require("./models/phone");2
+var phone= require("./models/phone");
 var resourceRouter = require('./routes/resource');
 var app = express();
 
