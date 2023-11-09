@@ -31,4 +31,39 @@ exports.phone_list = async function(req, res) {
     res.send(`{"error": ${err}}`);
     }
     };
+
+    // VIEWS
+    // Handle a show all view
+    exports.phone_view_all_Page = async function(req, res) {
+    try{
+    thePhone = await phone.find();
+    res.render('phone', { title: 'Phone Search Results', results: thePhone });
+    }
+    catch(err){
+    res.status(500);
+    res.send(`{"error": ${err}}`);
+    }
+    };
+    // Handle Costume create on POST.
+exports.phone_create_post = async function(req, res) {
+    console.log(req.body)
+    let document = new phone();
+    // We are looking for a body, since POST does not have query parameters.
+    // Even though bodies can be in many different formats, we will be picky
+    // and require that it be a json object
+    // {"costume_type":"goat", "cost":12, "size":"large"}
+    document.Phone_Name = req.body.Phone_Name;
+    document.Phone_price = req.body.Phone_price;
+    document.Phone_Storage = req.body.Phone_Storage;
+    try{
+    let result = await document.save();
+    res.send(result);
+    }
+    catch(err){
+    res.status(500);
+    res.send(`{"error": ${err}}`);
+    }
+    };
+    
+        
     

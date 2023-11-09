@@ -2,7 +2,7 @@ extends layout
 
 block content
   h1= title 
-  -var result = [{Phone_Name: "OnePlus", Phone_price: 200000, Phone_Storage: 256},{Phone_Name: "Iphone 7", Phone_price: 400000, Phone_Storage: 512},{Phone_Name: "Samsung", Phone_price: 1000000, Phone_Storage: 1024}];
+  -var result = results
     .container-fluid
         .row
             each item,index in result
