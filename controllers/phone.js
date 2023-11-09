@@ -19,3 +19,16 @@ res.send('NOT IMPLEMENTED: phone delete DELETE ' + req.params.id);
 exports.phone_update_put = function(req, res) {
 res.send('NOT IMPLEMENTED: phone update PUT' + req.params.id);
 };
+
+// List of all phone
+exports.phone_list = async function(req, res) {
+    try{
+    thePhone = await phone.find();
+    res.send(thePhone);
+    }
+    catch(err){
+    res.status(500);
+    res.send(`{"error": ${err}}`);
+    }
+    };
+    
