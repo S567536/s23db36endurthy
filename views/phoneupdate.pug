@@ -36,6 +36,7 @@ block content
         return resp.json(); // or resp.text() or whatever the server sends
       }).then((body) => {
         alert("Update succeeded");
+        window.location.href='/phone';
         // TODO handle body
       }).catch((error) => {
         // TODO handle error
