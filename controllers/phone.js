@@ -95,6 +95,33 @@ exports.phone_update_put = async function(req, res) {
     failed`);
     }
     };
+
+// Handle Costume delete on DELETE.
+exports.phone_delete = async function(req, res) {
+    console.log("delete " + req.params.id)
+    try {
+    result = await phone.findByIdAndDelete( req.params.id)
+    console.log("Removed " + result)
+    res.send(result)
+    } catch (err) {
+    res.status(500)
+    res.send(`{"error": Error deleting ${err}}`);
+    }
+    };
+
+    // Handle a show one view with id specified by query
+exports.phone_view_one_Page = async function(req, res) {
+    console.log("single view for id " + req.query.id)
+    try{
+    result = await phone.findById( req.query.id)
+    res.render('phonedetail',{ title: 'Phone Detail', toShow: result });
+    }
+    catch(err){
+    res.status(500)
+    res.send(`{'error': '${err}'}`);
+    }
+    };
+    
     
     
         
