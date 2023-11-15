@@ -10,6 +10,10 @@ var express = require('express');
     router.get('/detail', phone_controlers.phone_view_one_Page);
     /* GET create phone page */
     router.get('/create', phone_controlers.phone_create_Page);
+    /* GET create update page */
+    router.get('/update', phone_controlers.phone_update_Page);
+
+
 
 
 
