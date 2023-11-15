@@ -9,7 +9,7 @@ var express = require('express');
     /* GET detail phone page */
     router.get('/detail', phone_controlers.phone_view_one_Page);
     /* GET create phone page */
-    router.get('/create', costume_controlers.costume_create_Page);
+    router.get('/create', phone_controlers.phone_create_Page);
 
 
 
