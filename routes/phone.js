@@ -12,6 +12,9 @@ var express = require('express');
     router.get('/create', phone_controlers.phone_create_Page);
     /* GET create update page */
     router.get('/update', phone_controlers.phone_update_Page);
+    /* GET delete costume page */
+    router.get('/delete', phone_controlers.phone_delete_Page);
+
 
 
 
