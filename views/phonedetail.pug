@@ -1,18 +1,21 @@
 extends layout
 block content
  h1= title
-
-  - let phoneid = toShow._id
-  - let Phone_Name = toShow.Phone_Name
-  - let Phone_price = toShow.Phone_price
-  - let Phone_Storage = toShow.Phone_Storage
-  div
-   div.row
-    div(class='phoneAttr mr-3') Phone name type is:
-    div #{Phone_Name}
-   div.row
-    div(class='phoneAttr mr-3') Phone price is:
-    div #{Phone_price}
-   div.row
-    div(class='phoneAttr mr-3') Phone Storage is:
-    div #{Phone_Storage}
+  if(toShow == null)
+    h2 No instance to delete
+  else
+    - let phoneid = toShow._id
+    - let Phone_Name = toShow.Phone_Name
+    - let Phone_price = toShow.Phone_price
+    - let Phone_Storage = toShow.Phone_Storage
+  
+    div
+     div.row
+      div(class='phoneAttr mr-3') Phone name type is:
+      div #{Phone_Name}
+     div.row
+      div(class='phoneAttr mr-3') Phone price is:
+      div #{Phone_price}
+     div.row
+      div(class='phoneAttr mr-3') Phone Storage is:
+      div #{Phone_Storage}
