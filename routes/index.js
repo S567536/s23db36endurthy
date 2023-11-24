@@ -63,4 +63,11 @@ router.get('/login', function(req, res) {
   });
 module.exports = router;
 
+        // A little function to check if we have an authorized user and continue on or
+    // redirect to login.
+
+    router.post('/login', passport.authenticate('local'), function(req, res) {
+      res.redirect('/');
+      });
+
 module.exports = router;

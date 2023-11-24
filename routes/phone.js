@@ -11,8 +11,14 @@ var express = require('express');
     /* GET create phone page */
     router.get('/create', phone_controlers.phone_create_Page);
     /* GET create update page */
-    router.get('/update', phone_controlers.phone_update_Page);
-    /* GET delete costume page */
+    const secured = (req, res, next) => {
+        if (req.user){
+        return next();      
+        }
+        res.redirect("/login");
+        }
+    router.get('/update',secured, phone_controlers.phone_update_Page);
+    /* GET delete phone page */
     router.get('/delete', phone_controlers.phone_delete_Page);
 
 
