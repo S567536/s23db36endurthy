@@ -2,6 +2,16 @@ extends layout
 
 block content
   h1= title
+  if (!user)
+     a(href="/login") Login
+     br
+     a(href="/register") Register
+  if (user)
+     p You are currently logged in as #{user.username}
+     a(href="/phone") Take me to costumes
+     br
+     a(href="/logout") Logout
+
   p Welcome to #{title}
   p Talent wins games, but teamwork and intelligence wins championships.
   button(type="button", class="btn btn-info",onclick="goFaster()") press more for the content
