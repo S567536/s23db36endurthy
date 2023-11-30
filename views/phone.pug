@@ -3,15 +3,22 @@ extends layout
 block content
   h1= title 
   -var result = results
+  
     .container-fluid
+        - let destination2 = `dispatch(\"/phone/create")`
+        button.btn( class="btn-primary ml-1", onclick= destination2) Create
         .row
             each item,index in result
-                - let destination = `dispatch(\"/phone/update?id=${item._id}\")`
+                - let destination = `dispatch(\"/phone/detail?id=${item._id}\")`
+                - let destination1 = `dispatch(\"/phone/update?id=${item._id}\")`
+                - let destination3 = `dispatch(\"/phone/delete?id=${item._id}\")`
                 .col-sm-2(onclick=`buy(${index})`)
                     p Phone_Name: #{item.Phone_Name}
                     p Phone_price: #{item.Phone_price}
                     p Phone_Storage:#{item.Phone_Storage}
+                    button.btn( class="btn-primary ml-1", onclick= destination3) Detail
                     button.btn( class="btn-primary ml-1", onclick= destination) Update
+                    button.btn( class="btn-primary ml-1", onclick= destination1) Delete
                 
     script.
         function dispatch(path){
